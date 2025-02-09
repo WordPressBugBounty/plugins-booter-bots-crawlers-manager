@@ -1,3 +1,6 @@
+= 1.5.7 =
+- Update tested up to
+
 = 1.5.6 =
 - Move additiona bots list to a remote list
 

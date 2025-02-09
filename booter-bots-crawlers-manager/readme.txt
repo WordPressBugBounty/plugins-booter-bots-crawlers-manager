@@ -2,7 +2,7 @@
 Contributors: upress, ilanf, haimondo
 Tags: upress,hosting,security,rate limit,request
 Requires at least: 4.0
-Tested up to: 6.1
+Tested up to: 6.7
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -45,6 +45,9 @@ To allow the plugin to function correctly, you must follow the instructions and 
 3. Reject Links Settings
 
 == Changelog ==
+= 1.5.7 =
+- Update tested up to
+
 = 1.5.6 =
 - Move additiona bots list to a remote list
 
