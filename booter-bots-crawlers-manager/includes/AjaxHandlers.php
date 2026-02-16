@@ -25,6 +25,10 @@ class AjaxHandlers {
 	function disable_404_plugins() {
 		check_ajax_referer('booter-notices' );
 
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			wp_send_json_error( __( 'Sorry, you are not allowed to access this page.' ) );
+		}
+
 		$slugs = isset( $_POST['slugs'] ) ? $_POST['slugs'] : [];
 		$slugs = array_map( 'sanitize_key', $slugs );
 		$slugs = array_filter( $slugs );
@@ -40,6 +44,10 @@ class AjaxHandlers {
 
 	function download_disavow_list() {
 		if ( empty( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], 'download-disavow' ) ) {
+			wp_die( __( 'Sorry, you are not allowed to access this page.' ) );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_die( __( 'Sorry, you are not allowed to access this page.' ) );
 		}
 
@@ -63,6 +71,10 @@ class AjaxHandlers {
 
 	function ajax_get_bad_robots_list() {
 		check_ajax_referer( 'booter-options' );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( __( 'Sorry, you are not allowed to access this page.' ) );
+		}
 
 		wp_send_json( Utilities::get_bad_robots() );
 	}

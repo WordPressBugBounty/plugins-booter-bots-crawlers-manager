@@ -2,7 +2,7 @@
 Contributors: upress, ilanf, haimondo
 Tags: upress,hosting,security,rate limit,request
 Requires at least: 4.0
-Tested up to: 6.7
+Tested up to: 6.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -45,6 +45,10 @@ To allow the plugin to function correctly, you must follow the instructions and 
 3. Reject Links Settings
 
 == Changelog ==
+= 1.5.8 =
+- Update tested up to
+- Fix security issues
+
 = 1.5.7 =
 - Update tested up to
 

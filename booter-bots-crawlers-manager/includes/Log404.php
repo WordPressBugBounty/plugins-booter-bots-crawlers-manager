@@ -117,7 +117,7 @@ class Log404 {
 	public static function log() {
 		global $wpdb;
 
-		$url        = $_SERVER['REQUEST_URI'];
+		$url        = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_url( $_SERVER['REQUEST_URI'] ) : '';
 		$updated_at = current_time( 'mysql', true );
 
 		$dbname = $wpdb->prefix . BOOTER_404_DB_TABLE;
@@ -156,7 +156,7 @@ class Log404 {
 			return;
 		}
 
-		$email = !empty( $settings['report_email'] ) ? $settings['report_email'] : get_option( 'admin_email' );
+		$email = sanitize_email( !empty( $settings['report_email'] ) ? $settings['report_email'] : get_option( 'admin_email' ) );
 		$dbname = $wpdb->prefix . BOOTER_404_DB_TABLE;
 		$homepage = site_url();
 		$site_name = get_bloginfo( 'name' );

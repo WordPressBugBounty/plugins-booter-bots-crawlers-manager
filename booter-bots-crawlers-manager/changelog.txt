@@ -1,3 +1,7 @@
+= 1.5.8 =
+- Update tested up to
+- Fix security issues
+
 = 1.5.7 =
 - Update tested up to
 
