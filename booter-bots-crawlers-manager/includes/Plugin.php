@@ -1,6 +1,9 @@
 <?php
 namespace Upress\Booter;
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
 class Plugin {
 	private static $instance;
 
@@ -58,8 +61,8 @@ class Plugin {
 	}
 
 	public function load_translation() {
-		load_textdomain( 'booter', sprintf( '%1$s/%2$s/%2$s-%3$s.mo', WP_LANG_DIR, 'booter', get_locale() ) );
-		load_plugin_textdomain( 'booter', false, basename( dirname( BOOTER_FILE ) ) . '/languages' );
+		load_textdomain( 'booter-bots-crawlers-manager', sprintf( '%1$s/%2$s/%2$s-%3$s.mo', WP_LANG_DIR, 'booter-bots-crawlers-manager', get_locale() ) );
+		load_plugin_textdomain( 'booter-bots-crawlers-manager', false, basename( dirname( BOOTER_FILE ) ) . '/languages' );
 	}
 
 	/**
@@ -92,35 +95,55 @@ class Plugin {
 	/**
 	 * Install the MU plugin
 	 */
-	function install_mu_plugin() {
-		$mu_dir = ( defined( 'WPMU_PLUGIN_DIR' ) && defined( 'WPMU_PLUGIN_URL' ) ) ? WPMU_PLUGIN_DIR : trailingslashit( WP_CONTENT_DIR ) . 'mu-plugins';
-		$mu_dir = untrailingslashit( $mu_dir );
-		$source = BOOTER_DIR . '/mu-plugins/booter-crawlers-manager-mu.php';
-		$dest   = $mu_dir . '/booter-crawlers-manager-mu.php';
+    function install_mu_plugin() {
+        $mu_dir = ( defined( 'WPMU_PLUGIN_DIR' ) && defined( 'WPMU_PLUGIN_URL' ) ) ? WPMU_PLUGIN_DIR : trailingslashit( WP_CONTENT_DIR ) . 'mu-plugins';
+        $mu_dir = untrailingslashit( $mu_dir );
+        $source = BOOTER_DIR . '/mu-plugins/booter-crawlers-manager-mu.php';
+        $dest   = $mu_dir . '/booter-crawlers-manager-mu.php';
 
-		if ( ! file_exists( $mu_dir ) ) {
-			wp_mkdir_p( $mu_dir );
-		}
+        global $wp_filesystem;
+        if ( empty( $wp_filesystem ) ) {
+            require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        }
 
-		if ( file_exists( $dest ) ) {
-			unlink( $dest );
-		}
+        if ( ! WP_Filesystem() ) {
+            error_log( 'Booter: Failed to initialize WP_Filesystem during MU plugin installation.' );
+            return;
+        }
 
-		copy( $source, $dest );
-	}
+        if ( ! $wp_filesystem->exists( $mu_dir ) ) {
+            wp_mkdir_p( $mu_dir );
+        }
+
+        if ( $wp_filesystem->exists( $dest ) ) {
+            $wp_filesystem->delete( $dest );
+        }
+
+        $wp_filesystem->copy( $source, $dest, true, FS_CHMOD_FILE );
+    }
 
 	/**
 	 * Uninstall the MU plugin
 	 */
-	function uninstall_mu_plugin() {
-		$mu_dir    = ( defined( 'WPMU_PLUGIN_DIR' ) && defined( 'WPMU_PLUGIN_URL' ) ) ? WPMU_PLUGIN_DIR : trailingslashit( WP_CONTENT_DIR ) . 'mu-plugins';
-		$mu_dir    = trailingslashit( $mu_dir );
-		$mu_plugin = $mu_dir . '/booter-crawlers-manager-mu.php';
+    function uninstall_mu_plugin() {
+        $mu_dir    = ( defined( 'WPMU_PLUGIN_DIR' ) && defined( 'WPMU_PLUGIN_URL' ) ) ? WPMU_PLUGIN_DIR : trailingslashit( WP_CONTENT_DIR ) . 'mu-plugins';
+        $mu_dir    = trailingslashit( $mu_dir );
+        $mu_plugin = $mu_dir . '/booter-crawlers-manager-mu.php';
 
-		if ( file_exists( $mu_plugin ) ) {
-			unlink( $mu_plugin );
-		}
-	}
+        global $wp_filesystem;
+        if ( empty( $wp_filesystem ) ) {
+            require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        }
+
+        if ( ! WP_Filesystem() ) {
+            error_log( 'Booter: Failed to initialize WP_Filesystem during MU plugin uninstallation.' );
+            return;
+        }
+
+        if ( $wp_filesystem->exists( $mu_plugin ) ) {
+            $wp_filesystem->delete( $mu_plugin );
+        }
+    }
 
 	/**
 	 * Run the uninstall procedure
@@ -131,11 +154,6 @@ class Plugin {
 		delete_option( BOOTER_SETTINGS_KEY );
 		delete_option( 'booter_version' );
 		delete_transient( 'booter_disavow_list_downloaded_at' );
-		delete_transient( 'booter_bad_referers' );
-		delete_transient( 'booter_bad_robots' );
-		delete_transient( 'booter_bad_referers_updated_at' );
-		delete_transient( 'booter_bad_robots_updated_at' );
-
 		$dbname = $wpdb->prefix . BOOTER_404_DB_TABLE;
 		$wpdb->query( "DROP TABLE {$dbname}" );
 	}

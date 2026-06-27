@@ -5,9 +5,9 @@
   Description: The easy way to correctly manage crawlers and bots.
   Author: uPress
   Author URI: https://www.upress.io
-  Text Domain: booter
+  Text Domain: booter-bots-crawlers-manager
   Domain Path: /languages
-  Version: 1.5.8
+  Version: 1.6.1
   License: GPLv2 or later
   License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

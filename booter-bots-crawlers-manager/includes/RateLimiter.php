@@ -1,6 +1,9 @@
 <?php
-
 namespace Upress\Booter;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
 
 class RateLimiter {
 	private static $instance;
@@ -25,6 +28,9 @@ class RateLimiter {
 	 */
 	function maybe_rate_limit() {
 		$settings = get_option( 'booter_settings' );
+        if ( ! is_array( $settings ) || empty( $settings['rate_limit'] ) || ! is_array( $settings['rate_limit'] ) ) {
+            return;
+        }
 
 		if ( ! Utilities::bool_value( $settings['rate_limit']['enabled'] ) ) {
 			return;
@@ -34,16 +40,21 @@ class RateLimiter {
 			return;
 		}
 
+        $ua = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
+
 		$fingerprint = Utilities::generate_user_fingerprint_string();
 
 		if ( ! empty( $settings['rate_limit']['exclude'] ) ) {
-			$excluded_useragents = is_array( $settings['rate_limit']['exclude'] ) ? $settings['rate_limit']['exclude'] : json_decode( $settings['rate_limit']['exclude'] );
+            $excluded_useragents = is_array( $settings['rate_limit']['exclude'] )
+                ? $settings['rate_limit']['exclude']
+                : json_decode( $settings['rate_limit']['exclude'], true );
+            $excluded_useragents = is_array( $excluded_useragents ) ? $excluded_useragents : [];
 			$excluded_useragents = array_map( function ( $item ) {
 				return preg_quote( trim( $item ), '/' );
 			}, $excluded_useragents );
 
-			if ( count( $excluded_useragents ) > 0 && ! empty( $_SERVER['HTTP_USER_AGENT'] ) && preg_match( '/' . implode( '|', $excluded_useragents ) . '/i', $_SERVER['HTTP_USER_AGENT'] ) ) {
-				Logger::write( "'{$_SERVER['HTTP_USER_AGENT']}' is excluded via useragent whitelist" );
+			if ( count( $excluded_useragents ) > 0 && ! empty( $ua ) && preg_match( '/' . implode( '|', $excluded_useragents ) . '/i', $ua ) ) {
+				Logger::write( "'{$ua}' is excluded via useragent whitelist" );
 				return;
 			}
 		}
@@ -54,7 +65,7 @@ class RateLimiter {
 
 		// allow users to decide not to rate limit some useragents
 		if ( false === apply_filters( 'booter_should_rate_limit_useragent', $fingerprint ) ) {
-			Logger::write( "'{$_SERVER['HTTP_USER_AGENT']}' is excluded via fingerprint filter" );
+			Logger::write( "'{$ua}' is excluded via fingerprint filter" );
 			return;
 		}
 
@@ -64,7 +75,7 @@ class RateLimiter {
 		}
 
 		$id            = hash( 'sha256', $fingerprint );
-		$transient_key = "rate_limit_{$id}";
+		$transient_key = "booter_rate_limit_{$id}";
 		$last_access   = get_transient( $transient_key );
 
 		$attempts          = 1;
@@ -96,14 +107,14 @@ class RateLimiter {
 			set_transient( $transient_key, compact( 'last_access_time', 'attempts', 'should_be_blocked' ), $LOCKOUT_TIME );
 		}
 
-		if ( $should_be_blocked ) {
-			if ( $first_block ) {
-				Logger::write( "'{$_SERVER['HTTP_USER_AGENT']}' blocked by rate limit" );
-			}
+        if ( $should_be_blocked ) {
+            if ( $first_block ) {
+                Logger::write( "'{$ua}' blocked by rate limit" );
+            }
 
-			header( 'HTTP/1.0 429 Too Many Requests', true, 429 );
-			header( 'Retry-After: ' . date( 'r', time() + $LOCKOUT_TIME ) );
-			die( '<div style="text-align: center;"><h1 style="margin: 40px 0;">429 Too Many Requests</h1><hr><small>Booter - Bots & Crawlers Manager</small></div>' );
-		}
+            header( 'HTTP/1.0 429 Too Many Requests', true, 429 );
+            header( 'Retry-After: ' . gmdate( 'r', time() + (int) $LOCKOUT_TIME ) );
+            die( '<div style="text-align: center;"><h1 style="margin: 40px 0;">429 Too Many Requests</h1><hr><small>Booter - Bots & Crawlers Manager</small></div>' );
+        }
 	}
 }

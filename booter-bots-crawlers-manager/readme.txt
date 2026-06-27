@@ -1,9 +1,9 @@
 === Booter - Bots & Crawlers Manager ===
 Contributors: upress, ilanf, haimondo
 Tags: upress,hosting,security,rate limit,request
-Requires at least: 4.0
-Tested up to: 6.9
-Stable tag: trunk
+Requires at least: 6.2
+Tested up to: 7.0
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,7 @@ The plugin uses a number of existing technologies which are known by crawlers an
 Booter - Bots & Crawlers Manager is a preventative measure (treatment in advance) and treatment of damages caused by crawlers and bots.
 The plugin uses a number of existing technologies which are known by crawlers and bots and takes them one step forward - smartly and almost completely automatically.
 To allow the plugin to function correctly, you must follow the instructions and manually enter some data (which must be done by a human being to avoid errors).
+The plugin includes local bot and referrer lists and does not fetch these lists from external services.
 
 = At the prevention level =
 - Booter allows you to manage and create an advanced dynamic robots.txt file.
@@ -34,8 +35,13 @@ To allow the plugin to function correctly, you must follow the instructions and 
 1. Repeat the process once every few hours until the 404 error log remains blank.
 1. Check the status of your website's index coverage every few days.
 
+== Source Code ==
+
+The plugin includes human-readable source files for the bundled JavaScript and CSS assets under `assets/src/`.
+The production assets under `assets/dist/` are generated from these source files using Laravel Mix and npm.
+
 == Installation ==
-1. Upload `booter-crawlers-manager` folder to the `/wp-content/plugins/` directory
+1. Upload `booter` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. The plugin will start rate limiting as soon as it is activated, however it is recommended to update the settings to suit your needs, under 'Settings' -> 'Booter - Crawlers Manager' menu
 
@@ -45,6 +51,21 @@ To allow the plugin to function correctly, you must follow the instructions and 
 3. Reject Links Settings
 
 == Changelog ==
+= 1.6.1 =
+- Removed automatic remote list downloads.
+- Added local bot and referrer lists.
+- Added human-readable source files for bundled assets.
+- Updated text domain to match the WordPress.org plugin slug.
+- Updated transient prefixes.
+- Updated WordPress compatibility metadata.
+
+= 1.6.0 =
+- Security: Comprehensive output escaping and sanitization overhaul across all UI and log files.
+- Security: Hardened database queries and table creation processes (dbDelta) to strictly prevent SQL injection.
+- Refactor: Migrated all direct PHP filesystem operations (fopen, rename, unlink) to the secure WP_Filesystem API.
+- Bugfix: Resolved runtime timezone offset issues in HTTP headers and logs by enforcing the GMT/UTC standard.
+- Refactor: Improved WordPress Coding Standards (WPCS) compliance and enhanced translation/localization (i18n) support.
+
 = 1.5.8 =
 - Update tested up to
 - Fix security issues
@@ -76,3 +97,62 @@ To allow the plugin to function correctly, you must follow the instructions and 
 - Updated UI components
 - Updated bad bots list
 - Server IP will be excluded from rate limiting by default
+
+= 1.4.3 =
+- Fix rate limit/block applied to cli requests
+
+= 1.4.2 =
+- Fix error breaking rejected strings input
+- Updated tested WP version
+
+= 1.4.1 =
+- Fix typos
+- Added option to block all users without a useragent
+- Added additional strings to default settings
+
+= 1.4 =
+- New logo and banner
+- Added auto detection for sitemaps from All-in-one-SEO, Jetpack
+- Added a debug option to log which rule cause a block
+- Updated the lists of robots
+- Updated default settings
+- Updated error responses
+- UI improvements
+
+= 1.3.3 =
+- Updated default settings
+- Made the robots block case-sensitive to reduce false-positives
+
+= 1.3.2 =
+- Updated default settings
+- UI improvements
+
+= 1.3.1 =
+- UI fixes
+
+= 1.3 =
+- Added option to create a simple predefined robots.txt file
+- Reverted some changes from 1.2
+- Default settings changes
+- UI and text improvements
+- Added more help text
+- Readme changes
+
+= 1.2 =
+- Added disavow links tool
+- Added help screens
+- Added option to add rejected links to robots.txt
+- Disabled sending daily 404 report if there were no 404 errors that day
+
+= 1.1.1 =
+- Minor bug fixes
+
+= 1.1 =
+- Changes in data structure to avoid hitting post max vars limits
+- Added additional bad robots
+- Added website name to 404 daily emails
+- Minor bug fixes and changes
+- Added option to reject links based on regular expressions
+
+= 1.0 =
+Initial release

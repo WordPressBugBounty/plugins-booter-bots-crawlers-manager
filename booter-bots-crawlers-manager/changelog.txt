@@ -1,3 +1,18 @@
+= 1.6.1 =
+- Removed automatic remote list downloads.
+- Added local bot and referrer lists.
+- Added human-readable source files for bundled assets.
+- Updated text domain to match the WordPress.org plugin slug.
+- Updated transient prefixes.
+- Updated WordPress compatibility metadata.
+
+= 1.6.0 =
+- Security: Comprehensive output escaping and sanitization overhaul across all UI and log files.
+- Security: Hardened database queries and table creation processes (dbDelta) to strictly prevent SQL injection.
+- Refactor: Migrated all direct PHP filesystem operations (fopen, rename, unlink) to the secure WP_Filesystem API.
+- Bugfix: Resolved runtime timezone offset issues in HTTP headers and logs by enforcing the GMT/UTC standard.
+- Refactor: Improved WordPress Coding Standards (WPCS) compliance and enhanced translation/localization (i18n) support.
+
 = 1.5.8 =
 - Update tested up to
 - Fix security issues

@@ -1,0 +1,1029 @@
+# Copyright (C) 2026 uPress
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Booter - Bots & Crawlers Manager 1.5.9\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/booter\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-06-16T13:05:29+03:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: booter\n"
+
+#. Plugin Name of the plugin
+#: booter.php
+#: includes/Settings.php:64
+#: includes/Settings.php:218
+#: includes/Settings.php:219
+#: views/options.php:14
+msgid "Booter - Bots & Crawlers Manager"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: booter.php
+msgid "https://booter.app"
+msgstr ""
+
+#. Description of the plugin
+#: booter.php
+#: views/options.php:15
+msgid "The easy way to correctly manage crawlers and bots."
+msgstr ""
+
+#. Author of the plugin
+#: booter.php
+msgid "uPress"
+msgstr ""
+
+#. Author URI of the plugin
+#: booter.php
+msgid "https://www.upress.io"
+msgstr ""
+
+#: includes/AjaxHandlers.php:30
+#: includes/AjaxHandlers.php:48
+#: includes/AjaxHandlers.php:52
+#: includes/AjaxHandlers.php:81
+msgid "Sorry, you are not allowed to access this page."
+msgstr ""
+
+#. translators: %s: interval name
+#: includes/Log404.php:35
+#: includes/Log404.php:43
+#: views/options-tabs/404-log.php:22
+msgid "Weekly"
+msgstr ""
+
+#: includes/Log404.php:194
+msgctxt "404 log report email"
+msgid "Hi,"
+msgstr ""
+
+#. translators: %s: homepage URL
+#: includes/Log404.php:197
+#, php-format
+msgctxt "404 log report email"
+msgid "This is a daily 404 errors report for the %s website."
+msgstr ""
+
+#. translators: 1: total pages, 2: number of top results
+#: includes/Log404.php:200
+#, php-format
+msgctxt "404 log report email"
+msgid "Today, a total of %1$s pages were identified with a 404 error. This is the list of the %2$s most viewed pages:"
+msgstr ""
+
+#. translators: %s: number of hits
+#: includes/Log404.php:205
+#, php-format
+msgid "%s hit"
+msgid_plural "%s hits"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Log404.php:208
+msgctxt "404 log report email"
+msgid "If these links are unused, go to WordPress dashboard -> Settings -> Booter - Crawlers Manager, and block the links with a 410 status code, and/or block them via robots.txt file, to make search engines not index these pages."
+msgstr ""
+
+#: includes/Log404.php:213
+msgctxt "404 log report email subject"
+msgid "Daily 404 Log Report"
+msgstr ""
+
+#: includes/RobotsWriter.php:45
+msgid "Once Weekly"
+msgstr ""
+
+#: includes/Settings.php:46
+#: includes/Settings.php:127
+msgid "Enabled"
+msgstr ""
+
+#: includes/Settings.php:47
+#: includes/Settings.php:126
+msgid "Disabled"
+msgstr ""
+
+#: includes/Settings.php:50
+#: views/options-tabs/general.php:25
+msgid "Block Bad Robots"
+msgstr ""
+
+#: includes/Settings.php:51
+#: views/options-tabs/general.php:35
+msgid "robots.txt Management"
+msgstr ""
+
+#: includes/Settings.php:52
+#: views/options-tabs/general.php:45
+#: views/options.php:51
+msgid "Reject Links"
+msgstr ""
+
+#: includes/Settings.php:53
+#: views/options-tabs/general.php:57
+msgid "Rate Limiting"
+msgstr ""
+
+#: includes/Settings.php:54
+#: views/options-tabs/general.php:70
+msgid "404 Logging"
+msgstr ""
+
+#: includes/Settings.php:100
+msgid "Are you sure you want to disable the plugins?"
+msgstr ""
+
+#: includes/Settings.php:116
+msgid "Toggle Panel"
+msgstr ""
+
+#: includes/Settings.php:117
+msgid "Are You Sure?"
+msgstr ""
+
+#: includes/Settings.php:118
+msgid "Delete"
+msgstr ""
+
+#: includes/Settings.php:119
+msgid "Cancel"
+msgstr ""
+
+#: includes/Settings.php:120
+msgid "Allow"
+msgstr ""
+
+#: includes/Settings.php:121
+msgid "Disallow"
+msgstr ""
+
+#: includes/Settings.php:122
+msgid "Add"
+msgstr ""
+
+#: includes/Settings.php:123
+msgid "Remove"
+msgstr ""
+
+#: includes/Settings.php:124
+msgid "No"
+msgstr ""
+
+#: includes/Settings.php:125
+msgid "Yes"
+msgstr ""
+
+#: includes/Settings.php:128
+msgid "Manage"
+msgstr ""
+
+#: includes/Settings.php:129
+msgid "Save"
+msgstr ""
+
+#: includes/Settings.php:130
+#: views/options-tabs/block.php:76
+#: views/options-tabs/rate-limit.php:82
+msgid "Add a string to block"
+msgstr ""
+
+#: includes/Settings.php:131
+msgid "Add allowed URL"
+msgstr ""
+
+#: includes/Settings.php:132
+msgid "Add disallowed URL"
+msgstr ""
+
+#: includes/Settings.php:133
+#: views/options-tabs/robots.php:71
+msgid "All Crawlers"
+msgstr ""
+
+#: includes/Settings.php:134
+msgid "Add New Crawler"
+msgstr ""
+
+#: includes/Settings.php:135
+msgid "User-Agent"
+msgstr ""
+
+#: includes/Settings.php:136
+msgid "Crawl Rate"
+msgstr ""
+
+#: includes/Settings.php:137
+msgid "Not Defined"
+msgstr ""
+
+#. translators: %s: number of seconds
+#: includes/Settings.php:139
+#, php-format
+msgid "%s Seconds"
+msgstr ""
+
+#. translators: %s: number of minutes
+#: includes/Settings.php:141
+#, php-format
+msgid "%s Minutes"
+msgstr ""
+
+#: includes/Settings.php:142
+msgid "Delay between scans"
+msgstr ""
+
+#: includes/Settings.php:143
+msgid "Use this rule to throttle a crawler if they are crawling your website too frequently. Some crawlers (eg. GoogleBot) will ignore this rule, and some others might interpret it a little differently."
+msgstr ""
+
+#: includes/Settings.php:144
+msgid "No defined rate will allow the robots to crawl at their own discretion."
+msgstr ""
+
+#. translators: %s: crawler name
+#: includes/Settings.php:146
+#, php-format
+msgid "%s ignores this rule"
+msgstr ""
+
+#: includes/Settings.php:147
+msgid "Disallow Rejected Strings"
+msgstr ""
+
+#: includes/Settings.php:148
+msgid "Include the rejected strings in the disallowed links list."
+msgstr ""
+
+#: includes/Settings.php:149
+msgid "Manage Rejected Strings"
+msgstr ""
+
+#: includes/Settings.php:150
+msgid "Disallow Dashboard"
+msgstr ""
+
+#. translators: %s: dashboard URL
+#: includes/Settings.php:152
+#, php-format
+msgid "Block all URLs starting with %s."
+msgstr ""
+
+#: includes/Settings.php:153
+msgid "Allow AJAX"
+msgstr ""
+
+#. translators: %s: admin-ajax.php URL
+#: includes/Settings.php:155
+#, php-format
+msgid "Blocking the dashboard will block the %s file as well, if your theme uses AJAX to display content - AJAX has to be enabled for search engines to be able to see this content."
+msgstr ""
+
+#: includes/Settings.php:156
+msgctxt "tab label for new crawler when no user agent is defined"
+msgid "New Crawler"
+msgstr ""
+
+#: includes/Settings.php:157
+msgid "Use * as a user agent to affect all crawlers."
+msgstr ""
+
+#: includes/Settings.php:158
+msgid "You currently do not have any crawler settings defined."
+msgstr ""
+
+#: includes/Settings.php:159
+msgid "This user-agent already exists."
+msgstr ""
+
+#: includes/Settings.php:160
+msgid "The user-agent can not contain spaces, tabs, and any of the following charactes: ()<>@,;:\"/[]?={}"
+msgstr ""
+
+#. translators: %s: crawler name
+#: includes/Settings.php:162
+#, php-format
+msgid "Are you sure you want to delete the crawler \"%s\"?"
+msgstr ""
+
+#: includes/Settings.php:163
+msgid "Disallowed Links"
+msgstr ""
+
+#: includes/Settings.php:164
+msgid "Allowed Links"
+msgstr ""
+
+#: includes/Settings.php:165
+msgid "Manage Blocked Bots"
+msgstr ""
+
+#: includes/Settings.php:166
+msgid "No disallowed links means that all pages will be indexed."
+msgstr ""
+
+#: includes/Settings.php:167
+msgid "Update Bad Bots From Predefined List"
+msgstr ""
+
+#: includes/Settings.php:168
+msgid "Any bots included in this list will be automatically blocked. You can update the list from our predefined list of known bad bots by clicking the above link (your current list will not be overwritten)."
+msgstr ""
+
+#: includes/Settings.php:169
+msgid "Some crawlers support a limited form of \"wildcards\" for path values:"
+msgstr ""
+
+#: includes/Settings.php:170
+msgid "<code>*</code> designates 0 or more instances of any valid character."
+msgstr ""
+
+#: includes/Settings.php:171
+msgid "<code>$</code> designates the end of the URL."
+msgstr ""
+
+#: includes/Settings.php:181
+msgid "Settings"
+msgstr ""
+
+#. translators: 1: plugin name, 2: count of plugins
+#: includes/Settings.php:285
+#, php-format
+msgid "Booter - Bots & Crawlers Manager has found the following 404 redirect plugin active: %s"
+msgid_plural "Booter - Bots & Crawlers Manager has found the following 404 redirect plugins active: %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Settings.php:297
+msgid "Such redirects prevents Booter from detecting 404 errors as well as being the wrong way to handle broken links."
+msgstr ""
+
+#: includes/Settings.php:298
+msgid "A 404 error is the correct response to invalid URLs while a redirect (30X) tells search engines that the URLs exists (in another location)."
+msgstr ""
+
+#: includes/Settings.php:300
+msgid "We therefore recommend that you disable these plugins."
+msgstr ""
+
+#: includes/Settings.php:304
+msgid "Disable The Plugin"
+msgid_plural "Disable The Plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Settings.php:316
+msgid "The plugins have been disabled."
+msgstr ""
+
+#: views/options-tabs/404-log.php:12
+#: views/options-tabs/general.php:74
+msgid "Logging 404 errors allows you to detect bad or spam URLs search engines trying to crawl."
+msgstr ""
+
+#: views/options-tabs/404-log.php:17
+msgid "Receive 404 Errors Report"
+msgstr ""
+
+#: views/options-tabs/404-log.php:22
+#: views/options.php:34
+#: views/options.php:40
+#: views/options.php:46
+#: views/options.php:52
+#: views/options.php:58
+msgid "Off"
+msgstr ""
+
+#: views/options-tabs/404-log.php:22
+msgid "Daily"
+msgstr ""
+
+#: views/options-tabs/404-log.php:22
+msgid "Monthly"
+msgstr ""
+
+#. translators: %s: admin email address
+#: views/options-tabs/404-log.php:28
+#, php-format
+msgid "Receive a report for 404 errors. By default we will send the report to the admin email address %s."
+msgstr ""
+
+#: views/options-tabs/404-log.php:37
+msgid "Email Address"
+msgstr ""
+
+#: views/options-tabs/404-log.php:47
+#: views/options-tabs/debug.php:15
+msgid "Clear Log"
+msgstr ""
+
+#: views/options-tabs/404-log.php:56
+msgid "URL"
+msgstr ""
+
+#: views/options-tabs/404-log.php:57
+msgid "Hits"
+msgstr ""
+
+#: views/options-tabs/404-log.php:58
+msgid "First Seen"
+msgstr ""
+
+#: views/options-tabs/404-log.php:59
+msgid "Last Hit"
+msgstr ""
+
+#. translators: %s: human-readable time difference
+#: views/options-tabs/404-log.php:70
+#: views/options-tabs/404-log.php:75
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "%s ago"
+msgstr ""
+
+#: views/options-tabs/404-log.php:82
+msgid "No 404 Logs"
+msgstr ""
+
+#: views/options-tabs/about.php:13
+msgid "Booter - Bots & Crawlers Manager is a preventative measure (treatment in advance) as well as  retroactive treatment for damages caused by crawlers and bots."
+msgstr ""
+
+#: views/options-tabs/about.php:14
+msgid "The plugin uses a number of existing technologies which are known by crawlers and bots and takes them one step forward - smartly and almost completely automatically."
+msgstr ""
+
+#: views/options-tabs/about.php:15
+msgid "To allow the plugin to function correctly, you must follow the instructions and manually enter some data (which must be done by a human being to avoid errors)."
+msgstr ""
+
+#: views/options-tabs/about.php:18
+msgid "At the prevention level"
+msgstr ""
+
+#: views/options-tabs/about.php:20
+msgid "Booter allows you to manage and create an advanced dynamic robots.txt file."
+msgstr ""
+
+#: views/options-tabs/about.php:21
+msgid "View a 404 error log to see the most common bad links."
+msgstr ""
+
+#: views/options-tabs/about.php:22
+msgid "Blocking bad bots that cause high server loads due to very frequent page crawls, or are used to search for security vulnerabilities."
+msgstr ""
+
+#: views/options-tabs/about.php:25
+msgid "At the treatment level"
+msgstr ""
+
+#: views/options-tabs/about.php:27
+msgid "Booter allows you to limit the amount of requests from crawlers and bots, if or when they exceed the specified amount of requests per minute, it will be rejected for a specified period of time."
+msgstr ""
+
+#: views/options-tabs/about.php:28
+msgid "Rejecting links that we do not want in the fastest way, not by just blocking but by sending the appropriate HTTP status code to make search engines forget them."
+msgstr ""
+
+#: views/options-tabs/about.php:34
+msgctxt "uPress homepage link at about page"
+msgid "https://www.upress.io/?utm_source=booter&utm_medium=about"
+msgstr ""
+
+#: views/options-tabs/about.php:39
+msgid "After many years of experience in the hosting world, we identified the great usage trend of WordPress. We decided to invest our best efforts in developing a unique product that will change the rules of the game regarding the WordPress hosting."
+msgstr ""
+
+#: views/options-tabs/about.php:40
+msgid "We created a group of network administrators, software developers, cyber experts, networking specialists, UX-UI designers, and WordPress experts"
+msgstr ""
+
+#: views/options-tabs/about.php:41
+msgid "And together developed the hosting solution we dreamed of, a revolutionary and unique management panel that makes managing your server and the WordPress experience as easy and efficient as possible for Both beginners and advanced users alike."
+msgstr ""
+
+#: views/options-tabs/about.php:44
+msgid "Thanks to the advanced technological tools we have developed on our servers, we can ensure peak speeds and strong security."
+msgstr ""
+
+#: views/options-tabs/about.php:45
+msgid "Every day we improve our systems to continue to stand at the forefront of managed hosting services, with an emphasis on WordPress."
+msgstr ""
+
+#: views/options-tabs/about.php:48
+msgid "We at uPress believe that security should not be limited to tech-savvy people and should be something everyone can accomplish with ease."
+msgstr ""
+
+#: views/options-tabs/about.php:49
+msgid "This is the cornerstone for unleashing the potential WordPress has with its features, speed, stability and security."
+msgstr ""
+
+#: views/options-tabs/about.php:52
+msgctxt "uPress contact link at about page"
+msgid "https://www.upress.io/contact/?utm_source=booter&utm_medium=about"
+msgstr ""
+
+#: views/options-tabs/about.php:53
+msgid "Under attack? Contact us"
+msgstr ""
+
+#: views/options-tabs/bad-bots.php:11
+#: views/options-tabs/general.php:29
+msgid "Block bots we identified as malicious, which are causing high server loads from very frequent page crawls, or are used as part of a vulnerability/security breach scans."
+msgstr ""
+
+#: views/options-tabs/bad-bots.php:16
+msgid "Blocked Bot User Agents"
+msgstr ""
+
+#: views/options-tabs/block.php:20
+#: views/options-tabs/general.php:49
+msgid "Block access to predefined URLs, or cleanup old spam URLs by setting a corresponding HTTP status code."
+msgstr ""
+
+#: views/options-tabs/block.php:24
+msgid "Note: If you are in the process of handling spam links, make sure to disable all types of automatic redirects to https/www, this is done to allow search engines to crawl the links and reach the HTTP 410 status. If this is not done, search engines will see a redirect - which will cause the link to remain indexed for a long time. After the treatment is complete make sure to re-enable all required redirects."
+msgstr ""
+
+#: views/options-tabs/block.php:29
+msgid "Apply To"
+msgstr ""
+
+#: views/options-tabs/block.php:34
+msgid "Known Bots"
+msgstr ""
+
+#: views/options-tabs/block.php:34
+msgid "Everyone"
+msgstr ""
+
+#: views/options-tabs/block.php:37
+msgid "Choose who will be blocked by Booter, only known bots, or everyone including logged-in users."
+msgstr ""
+
+#: views/options-tabs/block.php:43
+msgid "Block Empty User Agents"
+msgstr ""
+
+#: views/options-tabs/block.php:47
+msgid "Every browser has a user agent identifying it, the operating system, and the device it is running on. This option will block access to users identified with a blank user agent."
+msgstr ""
+
+#: views/options-tabs/block.php:53
+msgid "Include WooCommerce Filtering URLs"
+msgstr ""
+
+#: views/options-tabs/block.php:57
+msgid "Some of the WooCommerce URLs such as add-to-cart buttons and filters can cause infinite loops for search engines if when the theme doesn't provide a noindex/nofollow property."
+msgstr ""
+
+#. translators: 1: example URL, 2: example URL with repeated filter
+#: views/options-tabs/block.php:63
+#, php-format
+msgctxt "WooCommerce infinite loops explanation"
+msgid "For example for a badly coded theme: %1$s which includes a URL to the same URL with another (same) filter %2$s which again includes the same filter, and so on."
+msgstr ""
+
+#: views/options-tabs/block.php:74
+msgid "URL Strings"
+msgstr ""
+
+#: views/options-tabs/block.php:78
+msgid "Booter will search for these strings in the URL a bot is trying to access and will block the request if it finds one of the strings."
+msgstr ""
+
+#: views/options-tabs/block.php:84
+msgid "Regular Expression Based Blocks"
+msgstr ""
+
+#: views/options-tabs/block.php:88
+msgid "This is an advanced option, only enable if you know what you are doing."
+msgstr ""
+
+#: views/options-tabs/block.php:93
+msgid "Regular Expressions"
+msgstr ""
+
+#: views/options-tabs/block.php:98
+msgctxt "regular expression string placeholder"
+msgid "Regular Expression eg. ^/index.php?filter=.*$"
+msgstr ""
+
+#: views/options-tabs/block.php:103
+msgid "Block HTTP Response"
+msgstr ""
+
+#: views/options-tabs/block.php:107
+msgid "401 Unauthorized - The crawler is not permitted to access this URL"
+msgstr ""
+
+#: views/options-tabs/block.php:110
+msgid "403 Forbidden - Access to this specific URL is not allowed"
+msgstr ""
+
+#: views/options-tabs/block.php:113
+msgid "404 Page Not Found - There is nothing in this URL (search engines might continue crawling this URL in case something will be there in the future)"
+msgstr ""
+
+#: views/options-tabs/block.php:116
+msgid "410 Gone - The URL will never be available"
+msgstr ""
+
+#: views/options-tabs/block.php:117
+msgid "(Recommended)"
+msgstr ""
+
+#: views/options-tabs/block.php:121
+msgid "This is the response returned when blocking. Each response means something different to search engines, so make sure to use the most correct response."
+msgstr ""
+
+#: views/options-tabs/debug.php:7
+#: views/options-tabs/general.php:101
+msgid "Log all block events with the rule which caused it and help you find rules causing false-positives."
+msgstr ""
+
+#: views/options-tabs/disavow.php:10
+msgid "In most cases, search engines can evaluate which links to your site are trusted based on the linking website's reputation."
+msgstr ""
+
+#: views/options-tabs/disavow.php:11
+msgid "But sometimes you would like to make search engines disregard links from specific websites that have a high number of spammy links, artificial links, or low quality links pointing to your website."
+msgstr ""
+
+#: views/options-tabs/disavow.php:12
+msgid "Disavowing links allows you to do that in case you are currently experiencing such an attack or want to defend yourself in advance."
+msgstr ""
+
+#: views/options-tabs/disavow.php:13
+msgid "To do this, follow these steps:"
+msgstr ""
+
+#: views/options-tabs/disavow.php:16
+msgid "Download the provided list file"
+msgstr ""
+
+#: views/options-tabs/disavow.php:18
+msgid "Go to the appropriate disavow links page:"
+msgstr ""
+
+#: views/options-tabs/disavow.php:20
+msgid "Google Search Console"
+msgstr ""
+
+#: views/options-tabs/disavow.php:23
+msgid "Bing Webmaster Tools"
+msgstr ""
+
+#: views/options-tabs/disavow.php:26
+msgid "Select your website"
+msgstr ""
+
+#: views/options-tabs/disavow.php:27
+msgid "Click Deny Links"
+msgstr ""
+
+#: views/options-tabs/disavow.php:28
+msgid "Select the file you downloaded and submit it"
+msgstr ""
+
+#: views/options-tabs/disavow.php:31
+msgid "*It may take several weeks for search engines to process the information you've uploaded."
+msgstr ""
+
+#: views/options-tabs/disavow.php:37
+msgid "Download Disavow List"
+msgstr ""
+
+#: views/options-tabs/disavow.php:42
+msgid "The File was not yet downloaded"
+msgstr ""
+
+#. translators: %s: formatted date and time of download
+#: views/options-tabs/disavow.php:46
+#, php-format
+msgid "The file was downloaded at %s"
+msgstr ""
+
+#: views/options-tabs/general.php:16
+msgid "Not sure where to start?"
+msgstr ""
+
+#: views/options-tabs/general.php:18
+msgid "View the help page"
+msgstr ""
+
+#: views/options-tabs/general.php:39
+#: views/options-tabs/robots.php:14
+msgid "Allow Booter - Crawlers Manager to manage your robots.txt file. Existing file will be renamed as a backup, but Booter robots.txt file will be overwritten automatically when saving the settings."
+msgstr ""
+
+#: views/options-tabs/general.php:58
+msgid "Recommended"
+msgstr ""
+
+#: views/options-tabs/general.php:64
+#: views/options-tabs/rate-limit.php:13
+msgid "Throttle excessive access from bots, crawlers, and malicious users."
+msgstr ""
+
+#: views/options-tabs/general.php:84
+#: views/options-tabs/robots.php:53
+msgid "Advanced"
+msgstr ""
+
+#: views/options-tabs/general.php:88
+msgid "Uninstall"
+msgstr ""
+
+#: views/options-tabs/general.php:92
+msgid "Delete all settings when deactivating the plugin."
+msgstr ""
+
+#: views/options-tabs/general.php:97
+msgid "Debug Mode"
+msgstr ""
+
+#: views/options-tabs/help.php:9
+msgid "Instructions for use in case of damage treatment"
+msgstr ""
+
+#: views/options-tabs/help.php:12
+msgid "This is recommended only if you think there are a high number of spammy links, artificial links, or low quality links pointing to your website"
+msgstr ""
+
+#: views/options-tabs/help.php:13
+msgid "and the links have caused manual action against your website, or there is a high probability that it will happen in the future (due to paid links or other link fraud that violate search engine quality guidelines)."
+msgstr ""
+
+#: views/options-tabs/help.php:16
+#: views/options-tabs/help.php:47
+msgid "Activate the plugin."
+msgstr ""
+
+#: views/options-tabs/help.php:17
+#: views/options-tabs/help.php:48
+msgid "Enable the 404 error log option."
+msgstr ""
+
+#: views/options-tabs/help.php:18
+msgid "Set the access rate limit."
+msgstr ""
+
+#: views/options-tabs/help.php:19
+msgid "Make sure that you do not disallow the links you want to be removed in the robots.txt file, you should allow search engines to attempt to retrieve the page and fail."
+msgstr ""
+
+#. translators: %s: HTML attributes for the disavow tab link
+#: views/options-tabs/help.php:24
+#, php-format
+msgid "Download the <a%s>disavow list</a> (spam domains or links that we want search engines to ignore when they see links to our website on them) created by Booter and submit it to search engines. (It's important to protect all variations of the URL that lead to the content you want to not index, with www, https, or without.)"
+msgstr ""
+
+#: views/options-tabs/help.php:29
+msgid "Watch the 404 log, try to find common parts in the URLs that repeats most often."
+msgstr ""
+
+#: views/options-tabs/help.php:30
+msgid "Enter the common parts to the \"reject links\" page, and ensure the rejection code is 410."
+msgstr ""
+
+#: views/options-tabs/help.php:31
+msgid "Clear the 404 error log."
+msgstr ""
+
+#: views/options-tabs/help.php:32
+msgid "Repeat the process once every few hours until the 404 error log remains blank."
+msgstr ""
+
+#: views/options-tabs/help.php:33
+#: views/options-tabs/help.php:52
+msgid "Check the status of your website's index coverage every few days."
+msgstr ""
+
+#: views/options-tabs/help.php:41
+msgid "Instructions for routine maintenance and defense"
+msgstr ""
+
+#: views/options-tabs/help.php:44
+msgid "This is recommended if your site has successfully remedied links from spam websites, or there are no artificial or low-quality links pointing to your website."
+msgstr ""
+
+#: views/options-tabs/help.php:49
+msgid "Disable the access rate limit (to not waste server resources)."
+msgstr ""
+
+#: views/options-tabs/help.php:50
+msgid "Submit a list disavowed backlinks and/or domains to search engines, this will request the search engine to not index the link if it is coming from one of the links or domains provided in the list."
+msgstr ""
+
+#: views/options-tabs/help.php:51
+msgid "Enable the robots.txt management, Set a crawl rate other than the default, and include the rejected links in the disallowed list."
+msgstr ""
+
+#: views/options-tabs/help.php:60
+msgid "Hide search results within a single day"
+msgstr ""
+
+#: views/options-tabs/help.php:63
+msgid "The URL removal tool allows you to temporarily hide (up to 90 days) pages from search engine results for websites you own."
+msgstr ""
+
+#: views/options-tabs/help.php:64
+msgid "It's important to remember that hiding the page does not imply removing it from the search index, it will still be indexed and crawled, they just won't be shown in the search results."
+msgstr ""
+
+#: views/options-tabs/help.php:65
+msgid "Search engines will continue to crawl the URL, so it's important to \"reject\" the URL with Booter. If the hiding period will end without rejecting the URL this page will appear again in search results."
+msgstr ""
+
+#: views/options-tabs/help.php:70
+msgid "Open the URL removal tool."
+msgstr ""
+
+#: views/options-tabs/help.php:73
+msgid "Click Hide temporarily."
+msgstr ""
+
+#: views/options-tabs/help.php:75
+msgid "Enter the relative path for the URL you want to hide."
+msgstr ""
+
+#: views/options-tabs/help.php:76
+msgid "For example:"
+msgstr ""
+
+#: views/options-tabs/help.php:81
+msgid "Click continue."
+msgstr ""
+
+#: views/options-tabs/help.php:82
+msgid "Choose clear cache and temporarily hide all URLs starting with..."
+msgstr ""
+
+#: views/options-tabs/help.php:83
+msgid "To permanently remove a URL, reject the URL with Booter."
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:14
+msgid "When a user exceeds the defined amount of requests per minute he will be blocked for a period of time defined."
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:15
+msgid "The block will return a 429 HTTP status code (too many requests), which tells legitimate users/bots to reduce the crawl rate, making them realize that they make request too frequently but are still desirable, unlike 403 status code which means that they are not allowed here."
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:20
+msgid "Rate Limit Logged In Users"
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:24
+msgid "Choose if you want to rate limit logged in users, otherwise only guests will be rate limited."
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:30
+msgid "Requests Limit Per Minute"
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:35
+msgid "per minute"
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:37
+msgid "This is the maximum number of request a user can make to the website before getting blocked."
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:42
+msgid "Block For"
+msgstr ""
+
+#. translators: %s: number of minutes
+#: views/options-tabs/rate-limit.php:52
+#: views/options-tabs/rate-limit.php:56
+#: views/options-tabs/rate-limit.php:60
+#: views/options-tabs/rate-limit.php:64
+#, php-format
+msgid "%s Minute"
+msgid_plural "%s Minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of hours
+#: views/options-tabs/rate-limit.php:68
+#, php-format
+msgid "%s Hour"
+msgid_plural "%s Hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: views/options-tabs/rate-limit.php:74
+msgid "This is the time the user will be blocked for with a 429 status code after reaching the requests limit."
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:80
+msgid "Excluded User Agents"
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:84
+msgid "Any useragent in this list will not be rate limited."
+msgstr ""
+
+#: views/options-tabs/rate-limit.php:85
+msgid "Make sure you add only bots you trust."
+msgstr ""
+
+#: views/options-tabs/robots.php:15
+msgid "Crawlers are not required to follow these guidelines, but most legitimate crawler will."
+msgstr ""
+
+#: views/options-tabs/robots.php:16
+msgid "The crawler creator decides which rules to obey and may ignore some of them."
+msgstr ""
+
+#: views/options-tabs/robots.php:21
+msgid "Deny All Crawlers"
+msgstr ""
+
+#: views/options-tabs/robots.php:24
+msgid "This will disallow all URLs for all user agents, it is essentially a no-index request."
+msgstr ""
+
+#: views/options-tabs/robots.php:30
+msgid "Include A URL To The Sitemap"
+msgstr ""
+
+#: views/options-tabs/robots.php:34
+msgid "Make it easier for search engines to find your sitemap by including a link to it in the robots.txt file."
+msgstr ""
+
+#: views/options-tabs/robots.php:40
+msgid "Sitemap URL"
+msgstr ""
+
+#: views/options-tabs/robots.php:48
+msgid "Management Type"
+msgstr ""
+
+#: views/options-tabs/robots.php:53
+msgid "Simple"
+msgstr ""
+
+#: views/options-tabs/robots.php:57
+msgid "Simple management type will create the most common robots.txt file fit for WordPress, advanced management will allow you to manually control the crawler settings."
+msgstr ""
+
+#: views/options-tabs/robots.php:66
+msgid "Robot Specific Settings"
+msgstr ""
+
+#: views/options-tabs/robots.php:67
+msgid "When defining settings for a specific crawler it will ignore the settings for all crawlers (*), all settings will have to be defined again for that crawler."
+msgstr ""
+
+#: views/options-tabs/robots.php:87
+msgid "Saving changes will overwrite the robots.txt file, if there is an existing file (not generated by Booter) it will be renamed to robots.txt.old."
+msgstr ""
+
+#: views/options-tabs/robots.php:89
+msgid "View robots.txt file"
+msgstr ""
+
+#: views/options.php:28
+msgid "General"
+msgstr ""
+
+#: views/options.php:33
+msgid "Bad Bots Blocking"
+msgstr ""
+
+#: views/options.php:39
+msgid "Robots.txt"
+msgstr ""
+
+#: views/options.php:45
+msgid "Rate Limit"
+msgstr ""
+
+#: views/options.php:57
+msgid "404 Errors Log"
+msgstr ""
+
+#: views/options.php:63
+msgid "Disavow Backlinks"
+msgstr ""
+
+#: views/options.php:68
+msgid "Help"
+msgstr ""
+
+#: views/options.php:73
+msgid "About"
+msgstr ""
+
+#: views/options.php:80
+msgid "Debug"
+msgstr ""

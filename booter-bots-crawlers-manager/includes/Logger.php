@@ -1,6 +1,10 @@
 <?php
 namespace Upress\Booter;
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
 use LimitIterator;
 use SplFileObject;
 
@@ -12,60 +16,75 @@ class Logger {
 	 * @return string
 	 */
 	public static function get_log_path() {
-		return wp_normalize_path( wp_get_upload_dir()['basedir'] . '/booter-log.txt' );
+        return wp_normalize_path( trailingslashit( WP_CONTENT_DIR ) . 'booter-logs/booter.log' );
 	}
+
+    protected static function ensure_log_dir( $log_dir ) {
+        if ( ! is_dir( $log_dir ) ) {
+            wp_mkdir_p( $log_dir );
+        }
+
+        if ( ! is_dir( $log_dir ) ) {
+            return;
+        }
+
+        $index_file = trailingslashit( $log_dir ) . 'index.html';
+        if ( ! file_exists( $index_file ) ) {
+            file_put_contents( $index_file, '', LOCK_EX );
+        }
+
+        $htaccess_file = trailingslashit( $log_dir ) . '.htaccess';
+        if ( ! file_exists( $htaccess_file ) ) {
+            file_put_contents( $htaccess_file, "Deny from all\n", LOCK_EX );
+        }
+    }
 
 	/**
 	 * Write a message to log
 	 * @param string $message
 	 */
-	public static function write( $message ) {
-		if ( ! static::$settings ) {
-			static::$settings = get_option( 'booter_settings' );
-		}
+    public static function write( $message ) {
+        if ( ! static::$settings ) {
+            static::$settings = get_option( 'booter_settings' );
+        }
 
-		if ( ! isset( static::$settings['debug'] ) || ! Utilities::bool_value( static::$settings['debug'] ) ) {
-			return;
-		}
+        if ( ! isset( static::$settings['debug'] ) || ! Utilities::bool_value( static::$settings['debug'] ) ) {
+            return;
+        }
 
-		$logfile = static::get_log_path();
+        $logfile = static::get_log_path();
+        static::ensure_log_dir( dirname( $logfile ) );
 
-		// this should exist
-		if ( ! file_exists( dirname( $logfile ) ) ) {
-			wp_mkdir_p( dirname( $logfile ) );
-		}
+        $datetime = gmdate( 'r' );
+        $ip       = implode( ',', Utilities::get_client_ip() );
+        $message  = str_replace( [ "\r", "\n" ], ' ', sanitize_text_field( (string) $message ) );
 
-		$datetime = date( 'r' );
-		$ip = implode( ',', Utilities::get_client_ip() );
+        $log_line = sprintf(
+            '%s [%s] "%s", request: "%s %s", referer: "%s"' . PHP_EOL,
+            $ip,
+            $datetime,
+            $message,
+            isset( $_SERVER['REQUEST_METHOD'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) : '',
+            isset( $_SERVER['REQUEST_URI'] ) ? sanitize_url( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '',
+            ( empty( $_SERVER['HTTP_REFERER'] ) ? '-' : sanitize_url( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) )
+        );
 
-		$file = fopen( $logfile, 'a' );
-		fwrite( $file, sprintf(
-			'%s [%s] "%s", request: "%s %s", referer: "%s"' . PHP_EOL,
-			$ip,
-			$datetime,
-			$message,
-			$_SERVER['REQUEST_METHOD'],
-			$_SERVER['REQUEST_URI'],
-			( empty( $_SERVER['HTTP_REFERER'] ) ? '-' : $_SERVER['HTTP_REFERER'] )
-		) );
-		fclose( $file );
-	}
+        file_put_contents( $logfile, $log_line, FILE_APPEND | LOCK_EX );
+    }
 
 	/**
 	 * Clear the log file
 	 */
-	public static function clear_log() {
-		$logfile = static::get_log_path();
+    public static function clear_log() {
+        $logfile = static::get_log_path();
+        static::ensure_log_dir( dirname( $logfile ) );
 
-		if ( ! file_exists( $logfile ) ) {
-			// file does not exists, nothing to do
-			return;
-		}
+        if ( ! file_exists( $logfile ) ) {
+            return;
+        }
 
-		$file = fopen( $logfile, 'w' );
-		ftruncate( $file, 0 );
-		fclose( $file );
-	}
+        file_put_contents( $logfile, '', LOCK_EX );
+    }
 
 	/**
 	 * Get the latest log entries
